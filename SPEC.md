@@ -84,7 +84,7 @@ What stays in the inbox is mail from people and mail that asks something of you.
 
 ## Notes
 
-In Notion, every page gets a `Room` property with the same four values. Views show one room each. Class notes default to Know.
+In Notion, a `Room` formula files every page from its existing properties (archived, type, course, status), and a `Room override` select corrects any page. One view per room. Class notes go to Know. See `docs/notion.md`.
 
 ## Paper
 
