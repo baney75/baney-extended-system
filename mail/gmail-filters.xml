@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  The Baney Extended System: Gmail filters.
+  Import once: Gmail, Settings, See all settings, Filters and Blocked Addresses,
+  Import filters, choose this file, Open file, tick "Apply new filters to existing
+  email", Create filters. Labels Do, Keep, Know and Let Go are created if missing.
+  What stays in the inbox: mail from people, and mail that asks something of you.
+  Nothing is deleted. Before importing, replace the example senders: newsletter-you-chose.com
+  (newsletters you want, filter 3), your-school.edu (school, filter 2) and
+  family@example.com (people whose mail must never be archived). Keep your
+  filled-in copy in mail/private/, which git ignores.
+-->
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+  <title>Baney Extended System</title>
+
+  <!-- 1. Keep: receipts, orders, statements, tax forms. Archived, labeled Keep. -->
+  <entry>
+    <category term='filter'></category>
+    <title>BES Keep</title>
+    <content></content>
+    <apps:property name='hasTheWord' value='subject:(receipt OR invoice OR statement OR &quot;order confirmed&quot; OR &quot;your order&quot; OR &quot;order has been&quot; OR &quot;payment confirmation&quot; OR &quot;payment received&quot; OR &quot;trade confirmation&quot; OR &quot;trade confirmations&quot; OR 1099 OR &quot;W-2&quot; OR &quot;tax form&quot; OR paystub OR &quot;pay stub&quot;) -subject:(&quot;payment request&quot; OR &quot;balance due&quot; OR &quot;amount due&quot; OR &quot;past due&quot; OR &quot;payment due&quot; OR code OR verify OR re OR fwd)'/>
+    <apps:property name='label' value='Keep'/>
+    <apps:property name='shouldArchive' value='true'/>
+    <apps:property name='sizeOperator' value='s_sl'/>
+    <apps:property name='sizeUnit' value='s_smb'/>
+  </entry>
+
+  <!-- 2. Do: bills due, deadlines, school, leaked-secret alerts. Stays in the inbox, labeled Do. -->
+  <entry>
+    <category term='filter'></category>
+    <title>BES Do</title>
+    <content></content>
+    <apps:property name='hasTheWord' value='subject:(&quot;action required&quot; OR &quot;payment request&quot; OR &quot;payment due&quot; OR &quot;past due&quot; OR &quot;amount due&quot; OR &quot;balance due&quot; OR &quot;due date&quot; OR deadline OR &quot;expires in&quot; OR required OR &quot;please respond&quot; OR RSVP OR &quot;secret detected&quot; OR &quot;secrets detected&quot;) OR from:(instructure.com OR blackboard.com OR your-school.edu) OR (from:gitguardian.com subject:detected)'/>
+    <apps:property name='label' value='Do'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+    <apps:property name='sizeOperator' value='s_sl'/>
+    <apps:property name='sizeUnit' value='s_smb'/>
+  </entry>
+
+  <!-- 3. Know: newsletters chosen on purpose. Archived, labeled Know. -->
+  <entry>
+    <category term='filter'></category>
+    <title>BES Know</title>
+    <content></content>
+    <apps:property name='hasTheWord' value='from:(substack.com OR newsletter-you-chose.com)'/>
+    <apps:property name='label' value='Know'/>
+    <apps:property name='shouldArchive' value='true'/>
+    <apps:property name='sizeOperator' value='s_sl'/>
+    <apps:property name='sizeUnit' value='s_smb'/>
+  </entry>
+
+  <!-- 4. Let Go: bulk mail (anything with an unsubscribe link) that is not Keep, Do or Know. -->
+  <entry>
+    <category term='filter'></category>
+    <title>BES Let Go: bulk</title>
+    <content></content>
+    <apps:property name='hasTheWord' value='unsubscribe -from:(substack.com OR newsletter-you-chose.com OR instructure.com OR blackboard.com OR your-school.edu OR gitguardian.com OR family@example.com OR your-school.edu) -subject:(receipt OR invoice OR statement OR &quot;your order&quot; OR &quot;order confirmed&quot; OR &quot;payment confirmation&quot; OR &quot;trade confirmation&quot; OR due OR required OR re OR fwd OR deadline OR &quot;action required&quot; OR code OR verify OR verification)'/>
+    <apps:property name='label' value='Let Go'/>
+    <apps:property name='shouldArchive' value='true'/>
+    <apps:property name='sizeOperator' value='s_sl'/>
+    <apps:property name='sizeUnit' value='s_smb'/>
+  </entry>
+
+  <!-- 5. Let Go: sign-in, device and breach notices. Archived and searchable, never deleted. -->
+  <entry>
+    <category term='filter'></category>
+    <title>BES Let Go: notices</title>
+    <content></content>
+    <apps:property name='hasTheWord' value='subject:(&quot;new sign-in&quot; OR &quot;new device&quot; OR passkey OR &quot;trusted device&quot; OR &quot;shared some Google Account data&quot; OR &quot;breach detected&quot; OR &quot;email address was removed&quot; OR &quot;added a card&quot;) -subject:(code OR verify) -from:(family@example.com OR your-school.edu)'/>
+    <apps:property name='label' value='Let Go'/>
+    <apps:property name='shouldArchive' value='true'/>
+    <apps:property name='sizeOperator' value='s_sl'/>
+    <apps:property name='sizeUnit' value='s_smb'/>
+  </entry>
+
+  <!-- 6. Let Go: robot notifications (GitHub, calendar echoes). -->
+  <entry>
+    <category term='filter'></category>
+    <title>BES Let Go: robots</title>
+    <content></content>
+    <apps:property name='hasTheWord' value='from:(notifications@github.com OR calendar-notification@google.com) -subject:(&quot;review requested&quot; OR &quot;requested your review&quot; OR mentioned)'/>
+    <apps:property name='label' value='Let Go'/>
+    <apps:property name='shouldArchive' value='true'/>
+    <apps:property name='sizeOperator' value='s_sl'/>
+    <apps:property name='sizeUnit' value='s_smb'/>
+  </entry>
+</feed>

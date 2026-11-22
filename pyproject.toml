@@ -6,6 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "bes"
 version = "1.0.0"
 description = "The Baney Extended System: sort files into Do, Keep, Know and Let Go."
+readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.11"
 dependencies = []
 classifiers = [

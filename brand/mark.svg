@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">The Baney Extended System mark: four rooms with the marks for Do, Keep, Know and Let Go</title>
+  <rect width="120" height="120" rx="14" fill="#F6F1E7"/>
+  <g fill="none" stroke="#1F2A44" stroke-width="3">
+    <rect x="12" y="12" width="44" height="44" rx="6"/>
+    <rect x="64" y="12" width="44" height="44" rx="6"/>
+    <rect x="12" y="64" width="44" height="44" rx="6"/>
+    <rect x="64" y="64" width="44" height="44" rx="6" stroke-dasharray="5 4"/>
+  </g>
+  <g fill="none" stroke="#1F2A44" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 26 L41 34 L27 42"/>
+    <path d="M93 26 L79 34 L93 42"/>
+    <path d="M25 81 H43 M25 91 H43"/>
+  </g>
+  <path d="M79 79 L93 93 M93 79 L79 93" stroke="#B8862B" stroke-width="4.5" stroke-linecap="round"/>
+</svg>
