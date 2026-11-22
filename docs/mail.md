@@ -28,6 +28,8 @@ Before importing, edit the sender lists in the file: the Know senders (newslette
 1. Create four labels: Do, Keep, Know, Let Go.
 2. Settings, Filters, Add Sieve filter. Paste `mail/proton.sieve`. Save.
 
+If your account already has filters that clear the inbox, keep them and make this one label-only: delete every `fileinto "archive";` line and change each `stop;` to `return;`, so your other filters still run. Add it last.
+
 Proton applies Sieve filters to new mail. To sort existing mail, search for it and apply the label by hand once.
 
 ## Why
